@@ -1,0 +1,14 @@
+.App {
+  --header_height: 60px;
+	margin: 50px
+}
+
+.hw {
+	
+	font-family: "Montserrat", sans-serif;
+}
+
+.hwTitle {
+	font-weight: 600;
+	font-size: 22px;
+}
