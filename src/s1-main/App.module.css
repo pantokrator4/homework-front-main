@@ -4,13 +4,15 @@
 }
 
 .hw {
-	border: 2px solid #AAA;
 	border-radius: 10px;
 	padding: 25px;
 	font-family: "Montserrat", sans-serif;
+	background-color: #FFF;
+	box-shadow: 0 0 5px white;
 }
 
 .hwTitle {
+	color: #FFF;
 	margin: 50px 0 20px 0;
 	font-weight: 600;
 	font-size: 22px;
