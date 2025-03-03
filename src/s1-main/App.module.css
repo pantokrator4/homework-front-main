@@ -1,7 +1,7 @@
 .App {
 	--header_height: 60px;
-	margin: 50px
-}
+	}
+
 
 .hw {
 	border-radius: 10px;
@@ -13,7 +13,10 @@
 
 .hwTitle {
 	color: #FFF;
-	margin: 50px 0 20px 0;
 	font-weight: 600;
 	font-size: 22px;
+}
+
+.hwWrapper {
+	margin: 0 70px;
 }
