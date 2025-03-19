@@ -3,6 +3,7 @@ import burgerIcon from "./burger.svg";
 import s from "./Header.module.css";
 import { useLocation } from "react-router-dom";
 import { PATH } from "../Pages";
+import s2 from '../../../s1-main/App.module.css'
 
 type PropsType = {
   handleOpen: () => void;
