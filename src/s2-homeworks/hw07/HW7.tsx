@@ -19,11 +19,9 @@ const arr = [
 
 const HW7 = () => {
   const [value, onChangeOption] = useState(1); // селект и радио должны работать синхронно
-	console.log(`state: ${value}`)
   return (
     <div id={"hw7"} className={s2.hwWrapper}>
       <div className={s2.hwTitle}>Homework #7</div>
-
       {/*демонстрация возможностей компонент:*/}
       <div className={s2.hw}>
         <div className={s.container}>

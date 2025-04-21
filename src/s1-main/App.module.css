@@ -4,7 +4,7 @@
 
 
 .hw {
-	margin-top: 60px;
+
 	border-radius: 10px;
 	padding: 25px;
 	font-family: "Montserrat", sans-serif;
@@ -16,8 +16,9 @@
 	color: #FFF;
 	font-weight: 600;
 	font-size: 22px;
+	margin-bottom: 20px;
 }
 
 .hwWrapper {
-	margin: 0 70px;
+	margin: 80px 70px 0 70px;
 }
