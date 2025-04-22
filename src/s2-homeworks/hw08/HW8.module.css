@@ -5,24 +5,23 @@
 }
 
 .users {
-  
 }
 
 .buttonsContainer {
-  margin-left: 235px;
   margin-bottom: 20px;
   display: flex;
+  justify-content: end;
   gap: 10px;
 }
 
 .container {
-  
+  font-size: 16px;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
 }
 
 .thead {
-  
   background-color:hsla(0, 0%, 90%, 1);
   font-size: 16px;
   font-weight: 600;
@@ -30,9 +29,11 @@
 
 .nameCol {
   padding: 20px;
-  font-size: 16px;
-  font-weight: 600;
+  border-bottom: solid 1px black;
 }
 
 .ageCol {
+  text-align: center;
+  border-bottom: solid 1px black;
+  border-left: solid 1px black;
 }
