@@ -1,3 +1,6 @@
 .loader {
     /*свг и/или анимация*/
+    background-image: url('/public/Loading.png');
+    width: 108px;
+    height: 108px;
 }
