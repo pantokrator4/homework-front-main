@@ -1,7 +1,9 @@
 .tech {
-
 }
 
 .loading {
-
+  color: #4D4D4D;
+  display: flex;
+  width: 370px;
+  justify-content: end;
 }
