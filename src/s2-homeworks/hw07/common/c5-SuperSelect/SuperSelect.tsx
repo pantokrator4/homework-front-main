@@ -4,6 +4,9 @@ import React, {
   ChangeEvent,
 } from "react";
 import s from "./SuperSelect.module.css";
+import { useSelector } from "react-redux";
+import { changeThemeId } from "../../../hw12/bll/themeReducer";
+import { AppStoreType } from "../../../hw10/bll/store";
 
 type DefaultSelectPropsType = DetailedHTMLProps<
   SelectHTMLAttributes<HTMLSelectElement>,
@@ -22,6 +25,8 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
   onChangeOption,
   ...restProps
 }) => {
+  const themeId = useSelector((state: AppStoreType) => state.theme.themeId);
+
   const mappedOptions: any[] = options
     ? options.map((o) => (
         <option
@@ -37,18 +42,19 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
 
   const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
 		onChangeOption?.(Number(e.currentTarget.value))
-    console.log(e.currentTarget.value)
-		};
+    onChange?.(e)
+		}
 
   const finalSelectClassName = s.select + (className ? " " + className : "");
 
   return (
     <select
+      value={themeId}
       className={finalSelectClassName}
       onChange={onChangeCallback}
       {...restProps}
     >
-      {mappedOptions}
+      { mappedOptions }
     </select>
   );
 };

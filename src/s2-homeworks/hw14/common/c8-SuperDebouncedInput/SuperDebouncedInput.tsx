@@ -1,49 +1,68 @@
-import React, {DetailedHTMLProps, InputHTMLAttributes, ReactNode, useState} from 'react'
-import SuperInputText from '../../../hw04/common/c1-SuperInputText/SuperInputText'
+import React, {
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+  ReactNode,
+  useState,
+} from "react";
+import SuperInputText from "../../../hw04/common/c1-SuperInputText/SuperInputText";
 
 // тип пропсов обычного инпута
-type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement>
+type DefaultInputPropsType = DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
 
 // здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута, кроме type
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
-export type SuperDebouncedInputPropsType = Omit<DefaultInputPropsType, 'type'> & {
-    // и + ещё пропсы которых нет в стандартном инпуте
-    onChangeText?: (value: string) => void
-    onEnter?: () => void
-    error?: ReactNode
-    spanClassName?: string
-} // илм экспортировать тип SuperInputTextPropsType
-    & { // плюс специальный пропс SuperPagination
-    onDebouncedChange?: (value: string) => void
-}
+export type SuperDebouncedInputPropsType = Omit<
+  DefaultInputPropsType,
+  "type"
+> & {
+  // и + ещё пропсы которых нет в стандартном инпуте
+  onChangeText?: (value: string) => void;
+  onEnter?: () => void;
+  error?: ReactNode;
+  spanClassName?: string;
+} & {
+  // илм экспортировать тип SuperInputTextPropsType
+  // плюс специальный пропс SuperPagination
+  onDebouncedChange?: (value: string) => void;
+};
 
-const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
-    {
-        onChangeText,
-        onDebouncedChange,
+const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = ({
+  onChangeText,
+  onDebouncedChange,
 
-        ...restProps // все остальные пропсы попадут в объект restProps
+  ...restProps // все остальные пропсы попадут в объект restProps
+}) => {
+  const [timerId, setTimerId] = useState<number | undefined | NodeJS.Timeout>(
+    undefined
+  );
+
+  const customTimeOut = (milSec: number, value: string) => {
+    if (onDebouncedChange) {
+      const timerId = setTimeout(() => {
+        onDebouncedChange(value);
+      }, milSec);
+      setTimerId(timerId);
     }
-) => {
-    const [timerId, setTimerId] = useState<number | undefined>(undefined)
+  };
 
-    const onChangeTextCallback = (value: string) => {
-        onChangeText?.(value)
+  const onChangeTextCallback = (value: string) => {
+    onChangeText?.(value);
 
-        if (onDebouncedChange) {
-            // делает студент
-
-            // остановить предыдущий таймер
-            // запустить новый на 1500ms, в котором вызовется функция
-
-            //
-        }
+    if (onDebouncedChange) {
+      if (timerId) {
+        clearTimeout(timerId);
+        setTimerId(undefined);
+        customTimeOut(1500, value);
+      } else {
+        customTimeOut(1500, value);
+      }
     }
+  };
 
-    return (
-        <SuperInputText onChangeText={onChangeTextCallback} {...restProps}/>
-    )
-}
+  return <SuperInputText onChangeText={onChangeTextCallback} {...restProps} />;
+};
 
-export default SuperDebouncedInput
+export default SuperDebouncedInput;

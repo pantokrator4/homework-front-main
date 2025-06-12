@@ -1,11 +1,9 @@
-
-
 .header {
   position: fixed;
   top: 0;
   z-index: 1;
   box-shadow: 0 0 2px 0 rgba(29, 33, 38, 0.1), 0 0 40px 0 rgba(29, 33, 38, 0.13);
-  background: #fff;
+  background: #FFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,9 +13,11 @@
 }
 
 .header h1 {
+  color: #000
 }
 
 .burgerMenuIcon {
   width: 25px;
   height: 25px;
+  color: red
 }
