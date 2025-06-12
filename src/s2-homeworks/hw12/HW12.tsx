@@ -25,7 +25,7 @@ const HW12 = () => {
   const dispatch = useDispatch();
 
   const change = (id: number) => {
-    // дописать функцию
+    localStorage.setItem('theme', id.toString())
     dispatch(changeThemeId(id));
   };
 

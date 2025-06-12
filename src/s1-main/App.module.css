@@ -8,11 +8,11 @@
 	border-radius: 10px;
 	padding: 25px;
 	font-family: "Montserrat", sans-serif;
-	border: 2px solid #353535
+	border: var(--border)
 }
 
 .hwTitle {
-	color: #000;
+	color: var(--color);
 	font-weight: 600;
 	font-size: 22px;
 	margin: 0 10px 20px 10px;
@@ -24,4 +24,23 @@
 	&:first-child {
 		margin-top: 100px;
 	}
+}
+
+[data-theme='1'] {
+    --color: #000000;
+		--border: 2px solid #000;
+}
+
+[data-theme='2'] {
+    --color: #000000;
+		--border: 2px solid #000;
+}
+
+[data-theme='3'] {
+    --color: #FFF;
+		--border: 2px solid #FFF;
+}
+
+html {
+  color: var(--color);
 }
